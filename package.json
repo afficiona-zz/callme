@@ -39,7 +39,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start-client": "npm-run-all -p watch-css start-js",
-    "start": "json-server --watch db.json",
+    "start": "json-server --watch db.json --host=callbooth.herokuapp.com",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint .",
