@@ -1,0 +1,114 @@
+// buttons
+.btn {
+  display: flex;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  border: solid 1px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.38;
+  transition: 0.4s all;
+  overflow: hidden;
+
+  .content {
+    z-index: 1;
+  }
+
+  &:after {
+    content: "";
+    background: rgba(0, 0, 0, 0.12);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s all;
+  }
+
+  circle {
+    stroke: #fff;
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  }
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24);
+    &:after {
+      opacity: 1;
+    }
+  }
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    line-height: 1;
+  }
+  .icon-right {
+    right: 16px;
+  }
+  .icon-left {
+    left: 16px;
+  }
+  &-no-radius {
+    border-radius: 0;
+  }
+  &-disabled {
+    pointer-events: none;
+  }
+  &-default {
+    background: #ffffff;
+    color: #000;
+
+    circle {
+      stroke: #000;
+    }
+  }
+  &-success {
+    background: $brand-success;
+    color: #fff;
+  }
+  &-bright {
+    background: $brand-bright;
+    color: #000;
+  }
+  &-primary {
+    background: $brand-primary;
+    color: #fff;
+
+    &.btn-disabled {
+      background-color: rgba(255, 64, 129, 0.32);
+    }
+  }
+  &-secondary {
+    background: $brand-secondary;
+    color: #fff;
+
+    &.btn-disabled {
+      opacity: 0.32;
+    }
+  }
+  &-gray {
+    background: #eceff1;
+  }
+  &-link,
+  &-link:hover,
+  &-link:focus,
+  &-link:active:focus {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}

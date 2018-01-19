@@ -1,0 +1,111 @@
+@import "variables";
+
+@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+@import "material-fonts";
+@import "header";
+@import "popup";
+@import "button";
+@import "loader";
+@import "card";
+@import "imgSelector";
+
+body {
+  margin: 0;
+}
+
+.app {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  background: #b4b2b5;
+  &__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .shell {
+    width: 420px;
+    height: 600px;
+    background: #ffffff;
+    box-shadow: -1px 0 35px -2px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    &__header {
+      background: #62b4dc;
+      height: 56px;
+      width: 100%;
+    }
+    &__toolbox {
+      background: #f2f2f2;
+      height: 56px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+    }
+
+    &__body {
+      overflow: auto;
+      height: 100%;
+      .contacts__list {
+        &__each {
+          padding: 16px;
+          border-bottom: 1px solid #ecf2f5;
+        }
+      }
+    }
+
+    &__footer {
+      height: 56px;
+      background: rgba(165, 177, 187, 0.29);
+      width: 100%;
+    }
+  }
+}
+
+// form
+.form-control {
+  background: #ffffff;
+  border: none;
+  height: 32px;
+  min-width: 200px;
+  border-radius: 4px;
+  padding: 0 16px;
+}
+
+//helpers
+.m-t-1x {
+  margin-top: $base-px-value;
+}
+.m-t-2x {
+  margin-top: $base-px-value * 2;
+}
+.m-l-1x {
+  margin-left: $base-px-value;
+}
+.p-1x {
+  padding: $base-px-value;
+}
+.p-t-1x {
+  padding-top: $base-px-value;
+}
+.p-h-1x {
+  padding-left: $base-px-value;
+  padding-right: $base-px-value;
+}
+.m-b-1x {
+  margin-bottom: $base-px-value;
+}
+.m-b-2x {
+  margin-bottom: $base-px-value * 2;
+}

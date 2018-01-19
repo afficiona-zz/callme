@@ -1,0 +1,46 @@
+// generic header
+.header {
+  width: 100%;
+  box-shadow: 2px 0 3px 0 #333;
+  background: #ffffff;
+  z-index: 2;
+  flex-shrink: 0;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 56px;
+    padding: 0 5px;
+    margin: 0 auto;
+    .icon {
+      font-size: 24px;
+      margin-right: 16px;
+      line-height: 1;
+      color: $text-color;
+    }
+  }
+  &-selected {
+    background: $brand-primary;
+    color: #ffffff;
+    .close {
+      margin-right: 16px;
+      font-size: 20px;
+    }
+    .bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .left {
+        display: flex;
+        align-items: center;
+      }
+      .right {
+        display: flex;
+        .btn {
+          height: 40px;
+        }
+      }
+    }
+  }
+}
