@@ -34,53 +34,147 @@ body {
   }
 
   .shell {
-    width: 420px;
     height: 600px;
+    border-radius: 12px;
     background: #ffffff;
     box-shadow: -1px 0 35px -2px rgba(0,0,0,0.75);
     display: flex;
-    flex-direction: column;
-    &__header {
-      background: #62b4dc;
-      height: 56px;
-      width: 100%;
+    overflow: hidden;
+
+    &__sidebar {
+      width: 196px;
+      height: 100%;
+      background: #1c72f9;
+      color: #ffffff;
+      .title {
+        font-size: 32px;
+      }
     }
-    &__toolbox {
-      background: #f2f2f2;
-      height: 56px;
+
+    &__content {
+      width: 764px;
+      height: 100%;
+      padding: 24px;
+    }
+
+    &__header {
       width: 100%;
-      display: flex;
       align-items: center;
-      padding: 0 16px;
+      display: flex;
+      height: 40px;
+      .search-form {
+        width: 100%;
+        position: relative;
+        &:before {
+          content: '\F016';
+          font-size: 20px;
+          font-family: "Material Design Icons";
+          width: 34px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+        }
+        .form-control {
+          background: #f4f8fe;
+          border: none;
+          height: 32px;
+          width: 100%;
+          border-radius: 10px;
+          padding: 0 16px 0 36px;
+        }
+      }
+      .filter {
+        background: #f4f8fe;
+        border-radius: 34px;
+        height: 34px;
+        display: flex;
+        width: 40px;
+        align-items: center;
+        margin-left: 24px;
+        justify-content: center;
+        cursor: pointer;
+      }
     }
 
     &__body {
-      overflow: auto;
-      height: 100%;
+      margin: 32px 0 0;
       .contacts__list {
-        &__each {
-          padding: 16px;
-          border-bottom: 1px solid #ecf2f5;
+        &__header {
+          background: #f8f9fb;
+          border-radius: 4px;
+          height: 30px;
+          display: flex;
+          flex-shrink: 1;
+          &__each {
+            font-weight: 700;
+            color: #a8a8a8;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            width: 165px;
+            padding: 8px 12px;
+            .action {
+              font-size: 20px;
+              cursor: pointer;
+            }
+            &:first-child {
+              width: 100px;
+            }
+            &:last-child {
+              width: 300px;
+            }
+          }
+        }
+
+        &__body {
+          overflow: auto;
+          height: 410px; //FIXME: change this
+          .list__row {
+            display: flex;
+            justify-content: start;
+            &:nth-child(even) {
+              background: #f8f9fb;
+            }
+            &--item {
+              width: 165px;
+              padding: 24px 12px;
+              font-size: 12px;
+              &:first-child {
+                width: 100px;
+              }
+              &:last-child {
+                width: 300px;
+              }
+            }
+          }
         }
       }
     }
 
     &__footer {
-      height: 56px;
-      background: rgba(165, 177, 187, 0.29);
+      height: 40px;
       width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .pagination {
+        display: flex;
+        &__link {
+          background: #f4f8fe;
+          padding: 4px 8px;
+          margin: 0 12px;
+          cursor: pointer;
+          border-radius: 100px;
+          &:hover {
+            background: $brand-primary;
+            color: #ffffff;
+          }
+        }
+      }
     }
   }
-}
-
-// form
-.form-control {
-  background: #ffffff;
-  border: none;
-  height: 32px;
-  min-width: 200px;
-  border-radius: 4px;
-  padding: 0 16px;
 }
 
 //helpers

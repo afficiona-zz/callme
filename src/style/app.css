@@ -847,7 +847,7 @@ html {
   -webkit-tap-highlight-color: transparent; }
 
 body {
-  font-family: "Roboto";
+  font-family: "Open Sans";
   font-size: 14px;
   line-height: 1.42857;
   color: #000000;
@@ -8082,41 +8082,114 @@ body {
     align-items: center;
     justify-content: center; }
   .app .shell {
-    width: 420px;
     height: 600px;
+    border-radius: 12px;
     background: #ffffff;
     box-shadow: -1px 0 35px -2px rgba(0, 0, 0, 0.75);
     display: flex;
-    flex-direction: column; }
+    overflow: hidden; }
+    .app .shell__sidebar {
+      width: 196px;
+      height: 100%;
+      background: #1c72f9;
+      color: #ffffff; }
+      .app .shell__sidebar .title {
+        font-size: 32px; }
+    .app .shell__content {
+      width: 764px;
+      height: 100%;
+      padding: 24px; }
     .app .shell__header {
-      background: #62b4dc;
-      height: 56px;
-      width: 100%; }
-    .app .shell__toolbox {
-      background: #f2f2f2;
-      height: 56px;
+      width: 100%;
+      align-items: center;
+      display: flex;
+      height: 40px; }
+      .app .shell__header .search-form {
+        width: 100%;
+        position: relative; }
+        .app .shell__header .search-form:before {
+          content: '\F016';
+          font-size: 20px;
+          font-family: "Material Design Icons";
+          width: 34px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute; }
+        .app .shell__header .search-form .form-control {
+          background: #f4f8fe;
+          border: none;
+          height: 32px;
+          width: 100%;
+          border-radius: 10px;
+          padding: 0 16px 0 36px; }
+      .app .shell__header .filter {
+        background: #f4f8fe;
+        border-radius: 34px;
+        height: 34px;
+        display: flex;
+        width: 40px;
+        align-items: center;
+        margin-left: 24px;
+        justify-content: center;
+        cursor: pointer; }
+    .app .shell__body {
+      margin: 32px 0 0; }
+      .app .shell__body .contacts__list__header {
+        background: #f8f9fb;
+        border-radius: 4px;
+        height: 30px;
+        display: flex;
+        flex-shrink: 1; }
+        .app .shell__body .contacts__list__header__each {
+          font-weight: 700;
+          color: #a8a8a8;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          width: 165px;
+          padding: 8px 12px; }
+          .app .shell__body .contacts__list__header__each .action {
+            font-size: 20px;
+            cursor: pointer; }
+          .app .shell__body .contacts__list__header__each:first-child {
+            width: 100px; }
+          .app .shell__body .contacts__list__header__each:last-child {
+            width: 300px; }
+      .app .shell__body .contacts__list__body {
+        overflow: auto;
+        height: 410px; }
+        .app .shell__body .contacts__list__body .list__row {
+          display: flex;
+          justify-content: start; }
+          .app .shell__body .contacts__list__body .list__row:nth-child(even) {
+            background: #f8f9fb; }
+          .app .shell__body .contacts__list__body .list__row--item {
+            width: 165px;
+            padding: 24px 12px;
+            font-size: 12px; }
+            .app .shell__body .contacts__list__body .list__row--item:first-child {
+              width: 100px; }
+            .app .shell__body .contacts__list__body .list__row--item:last-child {
+              width: 300px; }
+    .app .shell__footer {
+      height: 40px;
       width: 100%;
       display: flex;
       align-items: center;
-      padding: 0 16px; }
-    .app .shell__body {
-      overflow: auto;
-      height: 100%; }
-      .app .shell__body .contacts__list__each {
-        padding: 16px;
-        border-bottom: 1px solid #ecf2f5; }
-    .app .shell__footer {
-      height: 56px;
-      background: rgba(165, 177, 187, 0.29);
-      width: 100%; }
-
-.form-control {
-  background: #ffffff;
-  border: none;
-  height: 32px;
-  min-width: 200px;
-  border-radius: 4px;
-  padding: 0 16px; }
+      justify-content: center; }
+      .app .shell__footer .pagination {
+        display: flex; }
+        .app .shell__footer .pagination__link {
+          background: #f4f8fe;
+          padding: 4px 8px;
+          margin: 0 12px;
+          cursor: pointer;
+          border-radius: 100px; }
+          .app .shell__footer .pagination__link:hover {
+            background: #3f51b5;
+            color: #ffffff; }
 
 .m-t-1x {
   margin-top: 8px; }
