@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const profileImageUrl = require('./../assets/images/profile.jpg');
+const profileImageUrl = 'https://media-exp2.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAASNAAAAJDVhOWRjMTE3LWJmYTEtNGY0NC1hMTAwLWM0YjRkNjU4OTg4Zg.jpg';
 
 class Sidebar extends Component {
   render() {

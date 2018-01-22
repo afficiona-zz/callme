@@ -16,7 +16,7 @@ class App extends Component {
     this.state = {
       sortBy: 'id',
       orderBy: 'asc',
-      searchVal: 'Ann'
+      searchVal: ''
     };
 
     this.handlePagination = url => {

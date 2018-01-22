@@ -23,25 +23,31 @@
       "eslint --fix",
       "git add"
     ],
-    "**/package.json": ["prettier --write", "git add"]
+    "**/package.json": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "babel": {
-    "presets": ["es2015", "react", "stage-2"]
+    "presets": [
+      "es2015",
+      "react",
+      "stage-2"
+    ]
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start-client": "npm-run-all -p watch-css start-js",
+    "start-client": "npm-run-all -p watch-css start-js server",
+    "server": "node server.js",
     "start": "node server.js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js copyfiles && node replace.js",
     "copyfiles": "copyfiles -f build/index.html ./",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "test":
-      "./node_modules/.bin/mocha --timeout 5000 --compilers js:./test/compiler.js ./test/test_helper.js 'test/**/*.js'",
+    "test": "./node_modules/.bin/mocha --timeout 5000 --compilers js:./test/compiler.js ./test/test_helper.js 'test/**/*.js'",
     "prerelease": "sh bin/prerelease.sh",
     "release": "standard-version",
     "postrelease": "sh bin/postrelease.sh"
