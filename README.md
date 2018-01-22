@@ -14,6 +14,7 @@ API: https://callbooth.herokuapp.com
 
 ### Locally
 `npm run start-client`
+
 This should open the localhost url in the browser with the page ready. This also starts the node server locally which in turn starts the json-server. The json-server consumes db.json file as its database.
 
 ## How to deploy
@@ -27,11 +28,13 @@ We are using Heroku to handle the database and the server requests.
 6) This API is used by the application on production.
 
 `npm start`
+
 This command is used internally by Heroku to start the node server.
 
 ### Deploy to github
 
 `npm run build`
+
 This command will generate the build files and assets, necessary for deployment to production. Two important modules, `copyfiles` and `replace-in-file` are used under the `build` command.
 
 #### copyfiles
@@ -42,4 +45,5 @@ Now, this index.html will be referencing to assets which are still in the build 
 
 ## Tests
 `npm run test`
+
 This command runs the test cases for all the js files in the application.
