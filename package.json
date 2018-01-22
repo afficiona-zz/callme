@@ -3,25 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "3.3.7",
     "classnames": "2.2.5",
     "immutable": "^3.8.2",
-    "isomorphic-fetch": "^2.2.1",
     "json-server": "^0.12.1",
-    "lodash": "^4.17.4",
     "npm-run-all": "4.1.2",
-    "object-assign": "^4.1.1",
-    "prop-types": "15.6.0",
+    "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-dropzone": "4.2.5",
     "react-redux": "^5.0.6",
-    "react-router-dom": "4.2.2",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-logger": "3.0.6",
     "redux-thunk": "^2.2.0",
-    "styled-components": "2.2.4"
+    "replace-in-file": "^3.0.0"
   },
   "lint-staged": {
     "**/*.js": [
@@ -29,30 +24,44 @@
       "eslint --fix",
       "git add"
     ],
-    "**/package.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "**/package.json": ["prettier --write", "git add"]
+  },
+  "babel": {
+    "presets": ["es2015", "react", "stage-2"]
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "watch-css":
+      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
     "start-client": "npm-run-all -p watch-css start-js",
     "start": "node server.js",
-    "build": "react-scripts build",
+    "build-js": "react-scripts build",
+    "build": "npm-run-all build-css build-js copyfiles && node replace.js",
+    "copyfiles": "copyfiles -f build/index.html ./",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "precommit": "lint-staged",
-    "test": "react-scripts test --env=jsdom",
-    "deploy": "sh bin/deploy.sh",
+    "test":
+      "./node_modules/.bin/mocha --timeout 5000 --compilers js:./test/compiler.js ./test/test_helper.js 'test/**/*.js'",
     "prerelease": "sh bin/prerelease.sh",
     "release": "standard-version",
     "postrelease": "sh bin/postrelease.sh"
   },
   "devDependencies": {
+    "airbnb-js-shims": "^1.4.0",
+    "babel-core": "6.24.1",
     "babel-eslint": "8.0.3",
+    "babel-loader": "7.0.0",
+    "babel-plugin-transform-imports": "1.4.1",
+    "babel-preset-env": "1.5.1",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "chai": "^4.1.2",
+    "chai-immutable": "^1.6.0",
     "conventional-github-releaser": "2.0.0",
+    "enzyme": "3.1.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "4.13.1",
     "eslint-config-airbnb": "16.1.0",
     "eslint-config-prettier": "2.9.0",
@@ -61,11 +70,17 @@
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.5.1",
+    "fetch-mock": "^6.0.0-beta.10",
     "husky": "0.14.3",
+    "jsdom": "9.12.0",
     "lint-staged": "6.0.0",
+    "mocha": "3.4.1",
     "node-sass-chokidar": "0.0.3",
     "prettier": "1.9.2",
-    "standard-version": "4.2.0"
+    "redux-mock-store": "^1.4.0",
+    "sinon": "2.3.0",
+    "standard-version": "4.2.0",
+    "copyfiles": "^1.2.0"
   },
   "standard-version": {
     "skip": {

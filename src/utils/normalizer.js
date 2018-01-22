@@ -1,18 +1,19 @@
-export const normalizeContactsList = (contactsData) => {
+export const normalizeContactsList = contactsData => {
   let linksArray;
   const resultLinks = [];
   if (contactsData.link) {
     linksArray = contactsData.link.split(',');
     linksArray.map(link => {
       resultLinks.push({
-        link: link.split(';')[0].replace(/[<>]/g,''),
+        link: link.split(';')[0].replace(/[<>]/g, ''),
         relIcon: _setPaginationLinkIcon(link.split(';')[1].split('=')[1])
       });
     });
   }
   return {
     list: contactsData.data,
-    links: resultLinks
+    links: resultLinks,
+    totalCount: contactsData.totalCount
   };
 };
 

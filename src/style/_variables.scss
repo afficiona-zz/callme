@@ -1,17 +1,15 @@
-$font-family-base: "Open Sans" !default;
-$grid-gutter-width: 20px !default;
+$font-family-base: "Open Sans", Sans Serif !default;
 $base-px-value: 8px !default;
 
-$container-sm: 400px !default;
-$container-md: 960px !default;
-$container-lg: $container-md !default;
-
 //colors
-$brand-primary: #3f51b5 !default;
+$brand-primary: #1c72f9 !default;
 $brand-success: #00c853 !default;
 $brand-secondary: #ff4081 !default;
-$brand-bright: #ffe514 !default;
-$card-bg-color: #ff4081 !default;
-$text-color: #000000 !default;
+$text-color: #a8a8a8 !default;
 $body-bg: #eceff1 !default;
-$facebook-color: #3b5998 !default;
+$shell-bg: #ffffff;
+$brand-gray-bg: #f4f8fe;
+$list-header-bg: #f8f9fb;
+$list-alt-row-bg: #f8f9fb;
+$text-white: #ffffff;
+$text-gray: #a8a8a8;

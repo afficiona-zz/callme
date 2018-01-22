@@ -1,30 +1,32 @@
 @import "variables";
 
-@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/grid";
-@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/type";
-@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-@import "./../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
-
 @import "material-fonts";
-@import "header";
-@import "popup";
-@import "button";
 @import "loader";
-@import "card";
-@import "imgSelector";
 
 body {
   margin: 0;
+  font-family: $font-family-base;
 }
 
 .app {
   position: fixed;
   height: 100%;
   width: 100%;
-  overflow: scroll;
-  background: #b4b2b5;
+  overflow: hidden;
+  background: $body-bg;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    border-top: 2000px solid transparent;
+    border-bottom: 0;
+    border-right: 2500px solid $brand-primary;
+    right: 0;
+    z-index: -1;
+  }
+
   &__container {
     width: 100%;
     height: 100%;
@@ -34,9 +36,9 @@ body {
   }
 
   .shell {
-    height: 600px;
+    height: 500px;
     border-radius: 12px;
-    background: #ffffff;
+    background: $shell-bg;
     box-shadow: -1px 0 35px -2px rgba(0,0,0,0.75);
     display: flex;
     overflow: hidden;
@@ -44,10 +46,29 @@ body {
     &__sidebar {
       width: 196px;
       height: 100%;
-      background: #1c72f9;
-      color: #ffffff;
+      background: $brand-primary;
+      color: $text-white;
+      text-align: center;
+      .avatar {
+        width: 120px;
+        height: 115px;
+        border-radius: 200px;
+        overflow: hidden;
+        margin: 24px auto;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      }
       .title {
-        font-size: 32px;
+        font-size: 18px;
+        small {
+          margin-top: 4px;
+          font-size: 12px;
+          display: block;
+          color: $text-white;
+          opacity: 0.6;
+        }
       }
     }
 
@@ -63,8 +84,9 @@ body {
       display: flex;
       height: 40px;
       .search-form {
-        width: 100%;
+        width: 400px;
         position: relative;
+        color: $text-gray;
         &:before {
           content: '\F016';
           font-size: 20px;
@@ -77,39 +99,42 @@ body {
           position: absolute;
         }
         .form-control {
-          background: #f4f8fe;
-          border: none;
+          background: $brand-gray-bg;
+          color: $text-gray;
+          border: 1px solid $brand-gray-bg;
           height: 32px;
           width: 100%;
           border-radius: 10px;
           padding: 0 16px 0 36px;
+          transition: 0.3s all;
+          &:focus {
+            border: 1px solid $brand-primary;
+            outline: none;
+          }
         }
-      }
-      .filter {
-        background: #f4f8fe;
-        border-radius: 34px;
-        height: 34px;
-        display: flex;
-        width: 40px;
-        align-items: center;
-        margin-left: 24px;
-        justify-content: center;
-        cursor: pointer;
       }
     }
 
     &__body {
-      margin: 32px 0 0;
+      margin: 12px 0 0;
       .contacts__list {
+
+        &__total {
+          color: $brand-success;
+          font-size: 12px;
+          margin-bottom: 8px;
+          height: 17px;
+        }
+
         &__header {
-          background: #f8f9fb;
+          background: $list-header-bg;
           border-radius: 4px;
           height: 30px;
           display: flex;
           flex-shrink: 1;
           &__each {
             font-weight: 700;
-            color: #a8a8a8;
+            color: $text-gray;
             font-size: 12px;
             display: flex;
             align-items: center;
@@ -129,13 +154,18 @@ body {
         }
 
         &__body {
-          overflow: auto;
-          height: 410px; //FIXME: change this
+          overflow: hidden;
+          height: 320px;
+          &.loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
           .list__row {
             display: flex;
             justify-content: start;
             &:nth-child(even) {
-              background: #f8f9fb;
+              background: $list-alt-row-bg;
             }
             &--item {
               width: 165px;
@@ -149,12 +179,20 @@ body {
               }
             }
           }
+
+          &--empty, &--error {
+            padding: 40px;
+            text-align: center;
+            .icon {
+              font-size: 40px;
+            }
+          }
         }
       }
     }
 
     &__footer {
-      height: 40px;
+      height: 50px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -162,44 +200,18 @@ body {
       .pagination {
         display: flex;
         &__link {
-          background: #f4f8fe;
+          background: $brand-gray-bg;
           padding: 4px 8px;
           margin: 0 12px;
           cursor: pointer;
           border-radius: 100px;
+          transition: 0.3s all;
           &:hover {
             background: $brand-primary;
-            color: #ffffff;
+            color: $text-white;
           }
         }
       }
     }
   }
-}
-
-//helpers
-.m-t-1x {
-  margin-top: $base-px-value;
-}
-.m-t-2x {
-  margin-top: $base-px-value * 2;
-}
-.m-l-1x {
-  margin-left: $base-px-value;
-}
-.p-1x {
-  padding: $base-px-value;
-}
-.p-t-1x {
-  padding-top: $base-px-value;
-}
-.p-h-1x {
-  padding-left: $base-px-value;
-  padding-right: $base-px-value;
-}
-.m-b-1x {
-  margin-bottom: $base-px-value;
-}
-.m-b-2x {
-  margin-bottom: $base-px-value * 2;
 }
