@@ -23,8 +23,8 @@ We are using Heroku to handle the database and the server requests.
 2) Create an app on heroku using `heroku create` command.
 3) Push your commit to the master branch on github.
 4) Run `git push heroku master` to push the files to the Heroku app you created.
-5) Run `heroku open` to launch the app on the browser. In our case, it will open the base url of the API, https://callbooth.herokuapp.com/ 
-6) This API is used the application on production.
+5) Run `heroku open` to launch the app on the browser. In our case, it will open the base url of the API, https://callbooth.herokuapp.com/. Go to https://callbooth.herokuapp.com/contacts to see if everything is running fine.
+6) This API is used by the application on production.
 
 `npm start`
 This command is used internally by Heroku to start the node server.
