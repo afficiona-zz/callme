@@ -1,5 +1,7 @@
 #  Contacts Deck
 
+Demo: http://contacts.afficiona.com/
+
 This project is a demonstration of creating a sample contacts directory application using react.js library. It uses json-server as database server to fetch the data. The API is consumed from the heroku application, hosted at https://callbooth.herokuapp.com.
 
 API: https://callbooth.herokuapp.com
